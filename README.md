@@ -1,0 +1,2 @@
+# typeidea
+a python project
