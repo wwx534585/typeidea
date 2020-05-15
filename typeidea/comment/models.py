@@ -1,5 +1,5 @@
 from django.db import models
-from typeidea.blog.models import Post
+from blog.models import Post
 
 
 # Create your models here.
@@ -13,7 +13,7 @@ class Comment(models.Model):
         (STATUS_DELETE, '删除'),
     )
 
-    target = models.ForeignKey(Post, verbose_name="评论目标")
+    target = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name="评论目标")
     content = models.CharField(max_length=2000, verbose_name="内容")
     nickname = models.CharField(max_length=50, verbose_name="昵称")
     website = models.URLField(verbose_name="网站")

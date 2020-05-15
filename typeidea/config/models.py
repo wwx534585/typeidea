@@ -1,5 +1,8 @@
 from django.db import models
 from  django.contrib.auth.models import User
+import sys
+
+sys.path.append('..')
 
 # Create your models here.
 
@@ -16,7 +19,7 @@ class Link(models.Model):
     status = models.PositiveIntegerField(default=STATUS_NORMAL, choices = STATUS_ITEMS, verbose_name="状态")
     weight = models.PositiveIntegerField(default=1, choices = zip(range(1, 6), range(1, 6)),
                                          verbose_name="权重高展示顺序靠前")
-    owner = models.ForeignKey(User, verbose_name="作者")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
 
@@ -46,7 +49,7 @@ class SideBar(models.Model):
     status = models.PositiveIntegerField(default=STATUS_SHOW, choices=STATUS_ITEMS, verbose_name="状态")
     weight = models.PositiveIntegerField(default=1, choices=zip(range(1, 6), range(1, 6)),
                                          verbose_name="权重高展示顺序靠前")
-    owner = models.ForeignKey(User, verbose_name="作者")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
     class Meta:
