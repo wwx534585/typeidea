@@ -55,4 +55,13 @@ class SideBar(models.Model):
     class Meta:
         verbose_name = verbose_name_plural = "侧边栏"
 
+    name = models.CharField(max_length=30, verbose_name="配置名词")
+
+
+
+
+
+
+
+
 

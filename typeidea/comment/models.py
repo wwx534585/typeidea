@@ -1,6 +1,7 @@
 from django.db import models
+import sys
+sys.path.append('..')
 from blog.models import Post
-
 
 # Create your models here.
 
@@ -25,3 +26,14 @@ class Comment(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = '评论'
+
+    def __str__(self):
+        return self.nickname
+
+
+
+
+
+
+
+
